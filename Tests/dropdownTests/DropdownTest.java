@@ -12,9 +12,11 @@ public class DropdownTest extends TestUtilities {
     log.info("Starting optionTwoTest");
     WelcomePageObject welcomePage = new WelcomePageObject(driver, log);
     welcomePage.openPage();
-    DropdownPage dropDownPage = welcomePage.clickDropdownLink();
-    dropDownPage.selectOption(2);
-    String selectedOption = dropDownPage.getSelectedOption();
+
+    DropdownPage dropdownPage = welcomePage.clickDropdownLink();
+    dropdownPage.selectOption(2);
+    
+    String selectedOption = dropdownPage.getSelectedOption();
     Assert.assertTrue(selectedOption.equals("Option 2"), "Option 2 is not selected. Insted selected - " + selectedOption);
 }
 }
