@@ -1,5 +1,7 @@
 package Tests;
 
+import Pages.LoginPage;
+import Pages.WelcomePageObject;
 import Utilities.TestUtilities;
 import org.openqa.selenium.By;
 import org.testng.Assert;
@@ -13,17 +15,14 @@ public class NegativeLoginTests extends TestUtilities {
     public void negativeTest(String username, String password, String expectedErrorMessage) {
         System.out.println("Starting negativeTest");
 
-        // open main page
-        String url = "http://the-internet.herokuapp.com/";
-        driver.get(url);
-        System.out.println("Main page is opened.");
+        WelcomePageObject welcomePageObject = new WelcomePageObject(driver, log);
+        welcomePageObject.openPage();
+        LoginPage loginPage = welcomePageObject.clickFormAuthenticationLink();
 
-        // Click on Form Authentication link
-        driver.findElement(By.linkText("Form Authentication")).click();
-
-        // enter username and password
-        driver.findElement(By.id("username")).sendKeys(username);
-        driver.findElement(By.id("password")).sendKeys(password);
+        loginPage.negativeLogIn(username, password);
+        loginPage.waitForErrorMessage();
+        String message = loginPage.getErrorMessageText();
+        Assert.assertTrue(message.contains(expectedErrorMessage), "Message doesn't contain expected text.");
 
         // push log in button
         driver.findElement(By.className("radius")).click();
