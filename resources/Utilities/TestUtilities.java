@@ -1,4 +1,4 @@
-package Utilities;
+package resources.Utilities;
 
 public class TestUtilities extends BaseTest {
     protected  void sleep(long millis){

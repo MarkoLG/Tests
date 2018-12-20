@@ -3,8 +3,8 @@
 <suite name="Poczta Int.pl_Tests">
     <test name="Tests">
         <classes>
-            <class name="Tests.NegativeLoginTests"/>
-            <class name="Tests.PositiveLoginTests"/>
+            <class name="Tests.loginTest.NegativeLoginTests"/>
+            <class name="Tests.loginTest.PositiveLoginTests"/>
         </classes>
     </test>
 </suite>

@@ -1,12 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Poczta Int.pl_Tests">
-    <test name="Tests">
+        <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="NegativeLoginTestSuite" verbose="1" parallel="tests" thread-count="4">
+<test name="Test1">
+    <classes>
+        <class name="Tests.loginTest.NegativeLoginTests"/>
+        <parameter name="username" value="janusz"/>
+        <parameter name="password" value="janusz"/>
+        <parameter name="expectedMessage" value="Your username is invalid!"/>
+    </classes>
+</test>
+    <test name="Test2">
         <classes>
-            <class name="Tests.NegativeLoginTests"/>
-                <parameter name="login" value="janusz"/>
-                <parameter name="password" value="janusz"/>
-                <parameter name="expectedMessage" value="gums"/>
+            <class name="Tests.loginTest.NegativeLoginTests"/>
+            <parameter name="username" value="marian"/>
+            <parameter name="password" value="marian"/>
+            <parameter name="expectedMessage" value="ketchup"/>
+        </classes>
+    </test>
+    <test name="Test3">
+        <classes>
+            <class name="Tests.loginTest.NegativeLoginTests"/>
+            <parameter name="username" value="marek"/>
+            <parameter name="password" value="marek"/>
+            <parameter name="expectedMessage" value="ketchup"/>
+        </classes>
+    </test>
+    <test name="Test4">
+        <classes>
+            <class name="Tests.loginTest.NegativeLoginTests"/>
+            <parameter name="username" value="marian"/>
+            <parameter name="password" value="marian"/>
+            <parameter name="expectedMessage" value="Your username is invalid!"/>
         </classes>
     </test>
 </suite>

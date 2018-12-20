@@ -1,9 +1,8 @@
-package Tests;
+package Tests.loginTest;
 
 import Pages.LoginPage;
 import Pages.WelcomePageObject;
-import Utilities.TestUtilities;
-import org.openqa.selenium.By;
+import resources.Utilities.TestUtilities;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
@@ -22,16 +21,9 @@ public class NegativeLoginTests extends TestUtilities {
         loginPage.negativeLogIn(username, password);
         loginPage.waitForErrorMessage();
         String message = loginPage.getErrorMessageText();
+        System.out.println(message);
         Assert.assertTrue(message.contains(expectedErrorMessage), "Message doesn't contain expected text.");
 
-        // push log in button
-        driver.findElement(By.className("radius")).click();
-
-        // Verification
-        String actualErrorMessage = driver.findElement(By.id("flash")).getText();
-        Assert.assertTrue(actualErrorMessage.contains(expectedErrorMessage),
-                "actualErrorMessage does not contain expectedErrorMessage\nexpectedErrorMessage: "
-                        + expectedErrorMessage + "\nactualErrorMessage: " + actualErrorMessage);
     }
 
 }

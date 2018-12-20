@@ -1,9 +1,9 @@
-package Tests;
+package Tests.loginTest;
 
 import Pages.LoginPage;
 import Pages.SecureAreaPage;
 import Pages.WelcomePageObject;
-import Utilities.TestUtilities;
+import resources.Utilities.TestUtilities;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
